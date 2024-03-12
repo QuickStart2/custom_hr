@@ -138,34 +138,31 @@ def get_attendances(self, employees, start_date, end_date):
         summary[employee.id]["overtime"] = round(overtime, 2)
 
     return dates, attendances, summary
+    
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
-
-def get_leave_allocations(self, employees):
+def get_leave_allocations(self, employees, start_date, end_date):
     """Get data on leave and allocations."""
 
     # Data mappings
     leave_allocations = {}
 
-    # Init statics
-    now = fields.Datetime.now()
-
     # Iterate on users
     for employee in employees:
-
-        # Get active allocations
-        allocation_ids = self.env["hr.leave.allocation"].search(
+        # Get active allocations within the specified time period
+        allocation_ids = self.env["hr.leave"].search(
             [
                 ("employee_id", "=", employee.id),
-                "|",
-                ("date_to", ">=", now),
-                ("date_from", "<=", now),
+                ("state", "=", "validate"),  # Assuming validated allocations
+                ("date_from", "<=", end_date),
+                ("date_to", ">=", start_date),
             ]
         )
 
         leave_allocations[employee.id] = allocation_ids
 
     return leave_allocations
-
 
 def _get_report_values(self, docids, data=None, report_name=None):
 
@@ -192,7 +189,7 @@ def _get_report_values(self, docids, data=None, report_name=None):
         employees = self.env["hr.employee"].browse(docids)
 
     dates, attendances, summary = get_attendances(self, employees, start_date, end_date)
-    leave_allocations = get_leave_allocations(self, employees)
+    leave_allocations = get_leave_allocations(self, employees, start_date, end_date)
 
     return {
         "doc_ids": docids,
