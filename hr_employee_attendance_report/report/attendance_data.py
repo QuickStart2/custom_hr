@@ -1,14 +1,10 @@
 import logging
-
 from odoo import fields
-
-_logger = logging.getLogger(__name__)
 from datetime import datetime, time, timedelta
-
 from dateutil.relativedelta import relativedelta
-
 from odoo.osv import expression
 
+_logger = logging.getLogger(__name__)
 
 def _daterange(start_date, end_date):
     """Return list of dates."""
@@ -138,9 +134,6 @@ def get_attendances(self, employees, start_date, end_date):
         summary[employee.id]["overtime"] = round(overtime, 2)
 
     return dates, attendances, summary
-    
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 
 def get_leave_allocations(self, employees, start_date, end_date):
     """Get data on leave and allocations."""
