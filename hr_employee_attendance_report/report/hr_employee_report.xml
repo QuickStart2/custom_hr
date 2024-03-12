@@ -2,12 +2,12 @@
 <odoo>
 
     <record id="hr_employee_report" model="ir.actions.report">
-        <field name="name">Attendance Report</field>
+        <field name="name">Report Presenze</field>
         <field name="model">hr.employee</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">hr_employee_attendance_report.hr_employee</field>
         <field name="report_file">hr_employee_attendance_report.hr_employee</field>
-        <field name="print_report_name">'Attendance Report'</field>
+        <field name="print_report_name">'Report Presenze'</field>
         <field name="binding_model_id" ref="hr.model_hr_employee" />
         <field name="binding_type">report</field>
     </record>
@@ -28,14 +28,14 @@
                     t-value="summary[doc.id]['fixed_work_hours']"
                 />
 
-                <h1>Attendance Report</h1>
+                <h1>Report Presenze</h1>
 
-                <p>Employee: <span t-out="doc.name" /></p>
-                <p>From: <span
+                <p>Dipendente: <span t-out="doc.name" /></p>
+                <p>Da: <span
                         t-out="dates[doc.id]['start_date']"
                         t-options="{'widget': 'date'}"
                     /><br />
-                    Until: <span
+                    A: <span
                         t-out="dates[doc.id]['end_date']"
                         t-options="{'widget': 'date'}"
                     /></p>
@@ -53,19 +53,19 @@
                     <thead>
                         <tr>
                             <th name="th_date">
-                                Date
+                                Data
                             </th>
                             <th name="th_planned_hours" t-if="fixed_work_hours">
-                                Planned Hours
+                                Ore Pianificate
                             </th>
                             <th name="th_leave_hours" t-if="fixed_work_hours">
-                                Leave Hours
+                                Ore di Assenza
                             </th>
                             <th name="th_worked_hours">
-                                Worked Hours
+                                Ore Lavorate
                             </th>
                             <th name="th_overtime" t-if="fixed_work_hours">
-                                Overtime
+                                Ore Extra
                             </th>
                         </tr>
                     </thead>
@@ -165,10 +165,7 @@
                 <t t-if="fixed_work_hours">
                     <h2>Leave Allocations</h2>
 
-                    <table
-                        class="table table-sm allocations_table"
-                        name="allocations_table"
-                    >
+                    <table class="table table-sm allocations_table" name="allocations_table">
                         <thead>
                             <tr>
                                 <th name="th_description" class="text-start">
@@ -193,21 +190,19 @@
 
                                 <tr>
                                     <td id="description" class="text-start">
-                                        <t t-out="allocation.name" />
+                                        <t t-out="allocation.name"/>
                                     </td>
                                     <td id="leave_type" class="text-start">
-                                        <t t-out="allocation.holiday_status_id.name" />
+                                        <t t-out="allocation.holiday_status_id.name"/>
                                     </td>
                                     <td id="allocation" class="text-end">
-                                        <t t-out="allocation.duration_display" />
+                                        <t t-out="allocation.duration_display"/>
                                     </td>
                                     <td id="leaves_taken" class="text-end">
-                                        <t t-out="round(allocation.leaves_taken, 2)" />
+                                        <t t-out="round(allocation.leaves_taken, 2)"/>
                                     </td>
                                     <td id="remaining_leaves" class="text-end">
-                                        <t
-                                            t-out="allocation.remaining_leaves_display"
-                                        />
+                                        <t t-out="allocation.remaining_leaves_display"/>
                                     </td>
                                 </tr>
 
