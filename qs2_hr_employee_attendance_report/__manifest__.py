@@ -1,20 +1,20 @@
 {
-    "name": "Hr Attendance Missing",
+    "name": "qs2_HR Employee Attendance Report",
     "summary": """
-        Create attendance entries on working days without leave.
+        Attendance and leave report.
     """,
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Human Resources",
-    "version": "16.0.1.2.1",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
+    "depends": ["hr_attendance", "hr_holidays", "qs2_hr_holidays_remaining_leaves"],
     "data": [
+        "report/hr_employee_report.xml",
+        "report/res_users_report.xml",
         "security/ir.model.access.csv",
-        "data/ir_cron.xml",
         "wizard/select_period.xml",
-        "views/hr_attendance.xml",
     ],
-    "depends": ["hr_attendance", "hr_holidays"],
     "installable": True,
     "application": False,
     "auto_install": False,

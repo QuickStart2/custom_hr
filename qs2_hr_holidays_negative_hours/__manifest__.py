@@ -1,5 +1,5 @@
 {
-    "name": "HR Holidays Negative Hours",
+    "name": "qs2_HR Holidays Negative Hours",
     "summary": """
         Allow submit time-off request with negative extra hours.
     """,
@@ -8,7 +8,7 @@
     "category": "Human Resources",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
-    "depends": ["hr_holidays_attendance"],
+    "depends": ["qs2_hr_holidays_attendance"],
     "data": [
         "data/hr_holidays_negative_hours_data.xml",
         "views/hr_leave_type_views.xml",

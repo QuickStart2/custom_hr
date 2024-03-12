@@ -1,14 +1,15 @@
 {
-    "name": "HR Attendance Overtime Negative Hours",
+    "name": "QS2_ Hr Attendance Delta",
     "summary": """
-        Show negative hours in leave overview.
+        Calculates timespan between attendance entries.
     """,
-    "author": "Mint System GmbH, Odoo Community Association (OCA)",
+    "author": "QS2_Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Human Resources",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
-    "depends": ["hr_holidays_attendance"],
+    "depends": ["hr_attendance"],
+    "data": ["views/hr_attendance.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
