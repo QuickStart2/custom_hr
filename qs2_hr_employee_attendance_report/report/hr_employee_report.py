@@ -8,7 +8,7 @@ from . import attendance_data
 
 
 class ReportHrEmployee(models.AbstractModel):
-    _name = "report.hr_employee_attendance_report.hr_employee"
+    _name = "report.qs2_hr_employee_attendance_report.hr_employee"
     _description = "Attendance and leave report"
 
     @api.model

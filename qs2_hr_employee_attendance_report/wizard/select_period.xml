@@ -2,8 +2,8 @@
 <odoo>
 
         <record id="select_period" model="ir.ui.view">
-            <field name="name">hr_employee_attendance_report.select_period</field>
-            <field name="model">hr_employee_attendance_report.select_period</field>
+            <field name="name">qs2_hr_employee_attendance_report.select_period</field>
+            <field name="model">qs2_hr_employee_attendance_report.select_period</field>
             <field name="arch" type="xml">
                 <form string="Attendance Report Select Period">
                     <group col="4" colspan="6">
@@ -38,7 +38,7 @@
         <record id="action_select_period_res_users" model="ir.actions.act_window">
             <field name="name">Attendance Report Select Period</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_employee_attendance_report.select_period</field>
+            <field name="res_model">qs2_hr_employee_attendance_report.select_period</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
             <field name="binding_model_id" ref="base.model_res_users" />
@@ -48,7 +48,7 @@
         <record id="action_select_period_hr_employee" model="ir.actions.act_window">
             <field name="name">Attendance Report Select Period</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr_employee_attendance_report.select_period</field>
+            <field name="res_model">qs2_hr_employee_attendance_report.select_period</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
             <field name="binding_model_id" ref="hr.model_hr_employee" />

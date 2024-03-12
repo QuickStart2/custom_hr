@@ -5,14 +5,14 @@
         <field name="name">Report Presenze</field>
         <field name="model">hr.employee</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">hr_employee_attendance_report.hr_employee</field>
-        <field name="report_file">hr_employee_attendance_report.hr_employee</field>
+        <field name="report_name">qs2_hr_employee_attendance_report.hr_employee</field>
+        <field name="report_file">qs2_hr_employee_attendance_report.hr_employee</field>
         <field name="print_report_name">'Report Presenze'</field>
         <field name="binding_model_id" ref="hr.model_hr_employee" />
         <field name="binding_type">report</field>
     </record>
 
-    <template id="hr_employee_attendance_report.hr_employee">
+    <template id="qs2_hr_employee_attendance_report.hr_employee">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="qs2_hr_employee_attendance_report.hr_employee_template" />

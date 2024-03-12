@@ -176,7 +176,7 @@ def _get_report_values(self, docids, data=None, report_name=None):
         docids = data["context"]["active_ids"]
 
     # Browse documents
-    if report_name == "report.hr_employee_attendance_report.res_users":
+    if report_name == "report.qs2_hr_employee_attendance_report.res_users":
         employees = self.env["res.users"].browse(docids).mapped("employee_id")
     else:
         employees = self.env["hr.employee"].browse(docids)

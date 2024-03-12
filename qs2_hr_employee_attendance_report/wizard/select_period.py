@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 class HREmployeeAttendanceReportSelectPeriod(models.TransientModel):
 
-    _name = "hr_employee_attendance_report.select_period"
+    _name = "qs2_hr_employee_attendance_report.select_period"
     _description = "Attendance and leave report period selector"
 
     date_from = fields.Date(
@@ -30,9 +30,9 @@ class HREmployeeAttendanceReportSelectPeriod(models.TransientModel):
 
         # Check if wizards is called from user or employee view
         active_model = context.get("active_model")
-        report = "hr_employee_attendance_report.hr_employee_report"
+        report = "qs2_hr_employee_attendance_report.hr_employee_report"
         if active_model == "res.users":
-            report = "hr_employee_attendance_report.res_users_report"
+            report = "qs2_hr_employee_attendance_report.res_users_report"
 
         [data] = self.read()
         action = (
